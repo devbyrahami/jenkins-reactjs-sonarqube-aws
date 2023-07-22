@@ -1,2 +1,8 @@
+# FROM nginx
+# COPY . /usr/share/nginx/html/
+
+
 FROM nginx
-COPY . /usr/share/nginx/html/
+WORKDIR /usr/share/nginx/html
+COPY --from=prod /app/build .
+EXPOSE 80
